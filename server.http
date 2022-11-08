@@ -1,0 +1,74 @@
+@local=http://localhost:3000
+
+@chip =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjhhODYxMThjZjYzOWJkZTZjMDIxNTUiLCJiaXoiOnRydWUsImlhdCI6MTY1MzI0NTQ3OH0.E0pX9Vdoc0ENf1YtUlCXqZ1jalESP_DRAaD3MdBUTJQ
+
+
+###
+POST {{local}}/maor2022/usersRoutes
+Content-Type: application/json
+
+{
+"fullName":"eliya Omri", 
+"email": "eliya@gmail.com",
+"password": "12345678",
+"biz": "true"
+}
+
+###
+POST {{local}}/maor2022/auth
+Content-Type: application/json
+
+{
+
+"email": "eliya@gmail.com",
+"password": "12345678"
+
+}
+
+###
+GET {{local}}/maor2022/usersRoutes/us
+Content-Type: application/json
+x-auth-token: {{chip}}
+
+###
+POST {{local}}/maor2022/cartdsRoutes
+Content-Type: application/json
+x-auth-token: {{chip}}
+
+###
+POST {{local}}/maor2022/cartdsRoutes
+Content-Type: application/json
+x-auth-token: {{chip}}
+
+{
+"bizName": "HighTech services LTD",
+"bizDescription":"proivdes hither services including trading platforms",
+"bizAddress": "18 king david street Tel-Aviv",
+"bizPhone": "0523465821"
+}
+
+###
+GET {{local}}/maor2022/cartdsRoutes/628be0d1c3eca87f15f08ecb
+x-auth-token: {{chip}}
+
+###
+PUT {{local}}/maor2022/cartdsRoutes/628be0d1c3eca87f15f08ecb
+x-auth-token: {{chip}}
+Content-Type: application/json
+
+{
+
+"bizName": "maor services LTD",
+"bizDescription":"proivdes maor services including trading platforms",
+"bizAddress": "18 king david street Tel-Aviv",
+"bizPhone": "0523465821"
+
+}
+
+###
+DELETE {{local}}/maor2022/cartdsRoutes/628be0d1c3eca87f15f08ecb
+x-auth-token: {{chip}}
+
+###
+GET {{local}}/maor2022/cartdsRoutes/
+x-auth-token: {{chip}}
